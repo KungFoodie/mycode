@@ -2,6 +2,8 @@
 """Driving a simple game framework with
    a dictionary object | Alta3 Research"""
 
+import json, os
+
 def showInstructions():
     """Show the game instructions when called"""
     #print a main menu and the commands
@@ -29,30 +31,14 @@ def showStatus():
 # an inventory, which is initially empty
 inventory = []
 
-# a dictionary linking a room to other rooms
-rooms = {
 
-            'Hall' : {
-                  'south' : 'Kitchen',
-                  'east' : 'Dining Room',
-                  'item': 'key'
-                  },
+file = "/home/student/mycode/rooms.txt"
 
-            'Kitchen' : {
-                  'north' : 'Hall',
-                  'item'  : 'monster'                  
-                },
+with open(file, "r") as f:
+    data = f.read()
 
-            'Dining Room' : {
-                  'west' : 'Hall',
-                  'south': 'Garden',
-                  'item' : 'potion'
-                },
 
-            'Garden' : {
-                'north' : 'Dining Room'
-                }
-        }
+rooms = json.loads(data)
 
 # start the player in the Hall
 currentRoom = 'Hall'
@@ -103,8 +89,12 @@ while True:
 
     # If a player enters a room with a monster
     if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
-        print('A monster has got you... GAME OVER!')
-        break
+        if 'gun' in inventory:
+            print('Bang, you chased the monster away')
+            del rooms[currentRoom]['item']
+        else:
+            print('A monster has got you... GAME OVER!')
+            break
 
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
         print("You escaped the house with the ultra rare key and magic potion... YOU WIN!")
