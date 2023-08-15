@@ -32,7 +32,7 @@ def showStatus():
 inventory = []
 
 
-file = "/home/student/mycode/rooms.txt"
+file = "/home/student/mycode/rooms.json"
 
 with open(file, "r") as f:
     data = f.read()
