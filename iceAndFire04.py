@@ -7,9 +7,6 @@ import requests
 import pprint
 
 AOIF_CHAR = "https://www.anapioficeandfire.com/api/characters/"
-AOIF_BOOKS = "https://www.anapioficeandfire.com/api/books/"
-AOIF_HOUSES = "https://www.anapioficeandfire.com/api/houses/"
-
 
 def main():
         ## Ask user for input
@@ -21,9 +18,11 @@ def main():
         ## Decode the response
         got_dj = gotresp.json()
         pprint.pprint(got_dj)
+
         print("\nHouses: ")
         for allegiance in got_dj['allegiances']:
             print(requests.get(allegiance).json().get('name') + " ")
+            
         print("\nBooks: ")
         for book in got_dj['books']:
             print(requests.get(book).json().get('name') + " ")
