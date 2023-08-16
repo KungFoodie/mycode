@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="template" content="login, landing"/>
+    <meta name="description" content="Landing Page"/>
+    <meta name="author" content="William Sung"/>
+    <meta name="robots" content="nofollow"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+	@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    background: linear-gradient(45deg, #2980B9, #CCCCFF);
+    background-size: cover;
+    font-family: "sans-serif";
+    font-weight: 100;
+}
+
+
+/* Landing Login Page */
+
+.landing-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    font-size: 1.5em;
+}
+
+
+.login-row {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+
+.landing-login-form {
+    width: 100%;
+    padding: 2em;
+    position: relative;
+    background: rgba(0, 0, 0, .4);
+    box-shadow: black;
+    border-radius: .3rem;
+}
+
+.landing-loginbox {
+
+    padding: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: .3rem;
+    font-size: 1em;
+}
+
+
+.landing-login-button {
+    display: block;
+    padding: 1em;
+    width: 100%;
+    border-radius: .3rem;
+    background: rgba(38, 208, 124, .9);
+    border: 0;
+    color: white;
+    cursor: pointer;
+    font-size: .75em;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+}
+
+.landing-label {
+    flex: 1;
+    padding: 1em;
+    border: 0;
+    background-color: lightgray;
+    font-size: 1rem;
+}
+
+.landing-header {
+    width: 100%;
+    color: #fff;
+    font-size: 1.5em;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .9);
+    text-align: center;
+}
+
+.login-row i {
+    position: absolute;
+    left: 0;
+    padding: 25px 60px;
+    font-style: normal;
+    color: rgba(255, 255, 255, .7);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.landing-loginbox:focus ~ i,
+.landing-loginbox:valid ~ i {
+    transform: translateY(-20px);
+    font-size: 0.8em;
+    color: white;
+}
+
+
+
+
+
+	</style>
+</head>
+<body class="landing-body">
+<main>
+    <div class="landing-login">
+        <form action="/setcookie" class="landing-login-form" method="POST">
+            <div class="login-row login-header">
+                <h3 class="landing-header">Sign In</h3>
+            </div>
+            <div class="login-row">
+                <input type="text" class="landing-loginbox" name="nm" required> <i>Username</i>
+            </div>
+            <input type="submit" class="landing-login-button" value="Login">
+        </form>
+
+    </div>
+</main>
+</body>
+</html>
