@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# https://github.com/JasonTrespel/Python/blob/master/challenges/API%20CHALLENGE-%20ISS.md
+https://github.com/JasonTrespel/Python/blob/master/challenges/API%20CHALLENGE-%20ISS.md
 import requests
 import wget
 
