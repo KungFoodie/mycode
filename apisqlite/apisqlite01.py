@@ -59,11 +59,11 @@ def harvestkey():
         return apikeyfile.read().rstrip("\n") # grab the api key out of omdb.key
 
 def printlocaldb():
-    pass
-    #cursor = conn.execute("SELECT * from MOVIES")
-    #for row in cursor:
-    #    print("MOVIE = ", row[0])
-    #    print("YEAR = ", row[1])
+
+    cursor = conn.execute("SELECT * from MOVIES")
+    for row in cursor:
+        print("MOVIE = ", row[0])
+        print("YEAR = ", row[1])
 
 
 def main():
@@ -84,6 +84,7 @@ def main():
             2) Search for Movies Containing String, and by Type
             3) Search for Movies Containing String, and by Year
             4) Search for Movies Containing String, and by Type, and by Year 
+            5) Display Results
             99) Exit""")
 
             answer = input("> ")
@@ -106,6 +107,8 @@ def main():
                 vtype = vtype.lower()
                 year = input("What is the year of release? ")
                 resp = movielookup(mykey, searchstring, year=year, vtype=vtype)
+            elif answer == '5':
+                sqlite3.connect('mymovie.db')
 
             if resp:
                 # display the results
